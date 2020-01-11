@@ -10,11 +10,15 @@ class Converter extends React.Component {
         };
     }
 
+    isInputValid = (e) => {
+        return e.value && !isNaN(e.value);
+    }
+
     render = () => {
         return  (<div className="converter-wrapper">
             <form>
                 <label className="input-label">{AppConst.INPUT_LABEL}</label>
-                <input type="number" />
+                <input type="number" onChange={this.isInputValid}/>
             </form>
         </div>);
     }

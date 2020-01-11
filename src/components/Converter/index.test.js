@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme'; 
+import {shallow, mount} from 'enzyme'; 
 import {AppConst} from '../../constants/App.const';
 import Converter from './index';
 
@@ -13,4 +13,14 @@ describe(("<Converter/> component"), () => {
         expect(wrapper.find('label').text()).toEqual(AppConst.INPUT_LABEL);
         expect(wrapper.find('input').length).toBe(1);
     });
+
+    it("Input number should be valid", () => {
+        let input1 = "e";
+        let input2 = 20;
+        //wrapper = mount(<Converter />);
+        let converter = wrapper.instance();
+        expect(converter.isInputValid({value: input1})).toBeFalsy();
+        expect(converter.isInputValid({value: input2})).toBeTruthy();
+    });
+
 });
