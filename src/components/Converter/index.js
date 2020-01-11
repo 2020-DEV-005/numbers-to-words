@@ -1,4 +1,6 @@
 import React from 'react';
+import {AppConst} from '../../constants/App.const';
+import './Converter.css';
 
 class Converter extends React.Component {
     constructor(props){
@@ -9,7 +11,12 @@ class Converter extends React.Component {
     }
 
     render = () => {
-        return null;
+        return  (<div className="converter-wrapper">
+            <form>
+                <label className="input-label">{AppConst.INPUT_LABEL}</label>
+                <input type="number" />
+            </form>
+        </div>);
     }
 }
 
