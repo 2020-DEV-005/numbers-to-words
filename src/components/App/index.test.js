@@ -6,14 +6,16 @@ import {AppConst} from '../../constants/App.const';
 import Converter from '../Converter/';
 
 describe(("<App/> component"), () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(<App/>);
+    });
     
     it("App should have the title", () => {
-        let wrapper = shallow(<App/>);
         expect(wrapper.find("header h1").text()).toEqual(AppConst.APP_TITLE);     
     });
 
     it("App should load Converter component", () => {
-        let wrapper = shallow(<App/>);
-        expect(wrapper.find("Converter")).toBeDefined();
+        expect(wrapper.find(Converter)).toBeDefined();
     });
 });
